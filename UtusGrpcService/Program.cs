@@ -1,4 +1,4 @@
-using UtusGrpcService.Services;
+using UtusGrpcService.GrpcServices;
 
 var builder = WebApplication.CreateBuilder(args);
 

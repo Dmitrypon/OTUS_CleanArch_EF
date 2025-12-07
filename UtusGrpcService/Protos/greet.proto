@@ -5,17 +5,18 @@ option csharp_namespace = "UtusGrpcService";
 package greet;
 
 // The greeting service definition.
-service Greeter {
+service CourseGrpcController {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc CreateCourse (CreateCourseRequest) returns (CreateCourseReply);
 }
 
 // The request message containing the user's name.
-message HelloRequest {
+message CreateCourseRequest {
   string name = 1;
+  int32 price = 2;
 }
 
 // The response message containing the greetings.
-message HelloReply {
-  string message = 1;
+message CreateCourseReply {
+  int32 id = 1;
 }

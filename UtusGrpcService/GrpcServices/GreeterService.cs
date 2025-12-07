@@ -1,7 +1,7 @@
 using Grpc.Core;
 using UtusGrpcService;
 
-namespace UtusGrpcService.Services
+namespace UtusGrpcService.GrpcServices
 {
     public class GreeterService : Greeter.GreeterBase
     {

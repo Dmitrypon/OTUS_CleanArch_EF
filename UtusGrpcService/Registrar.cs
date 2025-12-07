@@ -1,13 +1,15 @@
-﻿using Infrastructure.EntityFramework;
+﻿using AutoMapper;
+using Infrastructure.EntityFramework;
 using Infrastructure.Repositories.Implementations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Services.Abstractions;
 using Services.Implementations;
 using Services.Repositories.Abstractions;
+using UtusGrpcService.Mapping;
 using UtusGrpcService.Settings;
 
-namespace WebApi
+namespace UtusGrpcService
 {
     /// <summary>
     /// Регистратор сервиса.
@@ -40,6 +42,25 @@ namespace WebApi
                 .AddTransient<ILessonRepository, LessonRepository>()
                 .AddTransient<IUnitOfWork, UnitOfWork>();
             return serviceCollection;
+        }
+
+        private static IServiceCollection InstallAutomapper(IServiceCollection services)
+        {
+            services.AddSingleton<IMapper>(new Mapper(GetMapperConfiguration()));
+            return services;
+        }
+
+        private static MapperConfiguration GetMapperConfiguration()
+        {
+            var configuration = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<CourseMappingsProfile>();
+                cfg.AddProfile<LessonMappingsProfile>();
+                cfg.AddProfile<Services.Implementations.Mapping.CourseMappingsProfile>();
+                cfg.AddProfile<Services.Implementations.Mapping.LessonMappingsProfile>();
+            });
+            configuration.AssertConfigurationIsValid();
+            return configuration;
         }
     }
 }
