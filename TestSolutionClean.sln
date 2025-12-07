@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{BEB722CA-C4E0-4E1B-8536-071D183D5DD7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DD04A90B-59BA-4453-A47D-029C3CA2B335}"
@@ -28,6 +31,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.EntityFramework", "Infrastructure\Infrastructure.EntityFramework\Infrastructure.EntityFramework.csproj", "{7FA2A220-4693-4837-930B-E46FDB4C132E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.UnitTests", "Infrastructure\Services.UnitTests\Services.UnitTests.csproj", "{B2D39D35-4029-4130-B7FF-759F9B8DE215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtusGrpcService", "UtusGrpcService\UtusGrpcService.csproj", "{1A041852-B29B-42BE-986C-EE45355D3241}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +76,13 @@ Global
 		{B2D39D35-4029-4130-B7FF-759F9B8DE215}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2D39D35-4029-4130-B7FF-759F9B8DE215}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2D39D35-4029-4130-B7FF-759F9B8DE215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A041852-B29B-42BE-986C-EE45355D3241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A041852-B29B-42BE-986C-EE45355D3241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A041852-B29B-42BE-986C-EE45355D3241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A041852-B29B-42BE-986C-EE45355D3241}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BEB722CA-C4E0-4E1B-8536-071D183D5DD7} = {C2D75D42-4C3F-4B52-8F4B-5D70DC304DC4}
@@ -82,5 +94,6 @@ Global
 		{B2BEE245-9B42-4486-A031-1F5C869AF848} = {BDCE4DE9-7199-42EF-BF47-B620CD97D578}
 		{7FA2A220-4693-4837-930B-E46FDB4C132E} = {DD04A90B-59BA-4453-A47D-029C3CA2B335}
 		{B2D39D35-4029-4130-B7FF-759F9B8DE215} = {DD04A90B-59BA-4453-A47D-029C3CA2B335}
+		{1A041852-B29B-42BE-986C-EE45355D3241} = {C2D75D42-4C3F-4B52-8F4B-5D70DC304DC4}
 	EndGlobalSection
 EndGlobal
