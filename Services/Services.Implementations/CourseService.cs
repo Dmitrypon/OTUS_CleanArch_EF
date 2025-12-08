@@ -20,20 +20,23 @@ namespace Services.Implementations
         private readonly IMapper _mapper;
         private readonly ICourseRepository _courseRepository;
         private readonly ILessonRepository _lessonRepository;
-        private readonly IBusControl _busControl;
+        //private readonly IBusControl _busControl;
         private readonly IUnitOfWork _unitOfWork;
 
         public CourseService(
             IMapper mapper,
             ICourseRepository courseRepository,
             ILessonRepository lessonRepository,
-            IUnitOfWork unitOfWork,
-            IBusControl busControl)
+            //IBusControl busControl,
+            IUnitOfWork unitOfWork
+            )
+
+
         {
             _mapper = mapper;
             _courseRepository = courseRepository;
             _lessonRepository = lessonRepository;
-            _busControl = busControl;
+            //_busControl = busControl;
             _unitOfWork = unitOfWork;
         }
 
