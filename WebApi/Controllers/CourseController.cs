@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Services.Abstractions;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
+using Services.Abstractions;
 using Services.Contracts.Course;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebApi.Hubs;
 using WebApi.Models.Course;
 
 namespace WebApi.Controllers
@@ -16,12 +18,23 @@ namespace WebApi.Controllers
         private readonly ICourseService _service;
         private readonly IMapper _mapper;
         private readonly ILogger<CourseController> _logger;
+        private readonly IHubContext<NotificationsHub> _hub;
 
-        public CourseController(ICourseService service, ILogger<CourseController> logger, IMapper mapper)
+        public CourseController(ICourseService service, ILogger<CourseController> logger, IMapper mapper,
+                                IHubContext<NotificationsHub> hub)
         {
             _service = service;
             _logger = logger;
             _mapper = mapper;
+            _hub = hub;
+        }
+
+        // GET api/notifications/test
+        [HttpGet("test")]
+        public async Task<IActionResult> Test()
+        {
+            await _hub.Clients.All.SendAsync("ReceiveMessage", "Test message from API!");
+            return Ok(new { message = "Message sent to SignalR clients" });
         }
 
         [HttpGet("{id}")]
