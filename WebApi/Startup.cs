@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApi.Hubs;
 using WebApi.Mapping;
 using WebApi.Settings;
 
@@ -37,6 +38,11 @@ namespace WebApi
                 });
             });
             services.AddCors();
+
+            // Добавляем SignalR
+            services.AddSignalR();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +82,11 @@ namespace WebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                // Регистрируем SignalR Hub
+                endpoints.MapHub<NotificationsHub>("/notifications");
             });
+
         }
         
         private static IServiceCollection InstallAutomapper(IServiceCollection services)
