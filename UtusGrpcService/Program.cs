@@ -39,11 +39,11 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 
 var app = builder.Build();
 
-//// Регистрация SignalR
-//builder.Services.AddSignalR();
+// Регистрация SignalR
+builder.Services.AddSignalR();
 
-//// Маршрутизация хаба
-//app.MapHub<NotificationsHub>("/notificationsHub");
+// Маршрутизация хаба
+app.MapHub<NotificationsHub>("/notificationsHub");
 
 // Маршрутизация gRPC
 app.MapGrpcService<CourseGrpcController>();
